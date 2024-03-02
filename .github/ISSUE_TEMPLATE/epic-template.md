@@ -10,7 +10,7 @@ assignees: DasUnicorn
 **Description:**
 n/a
 
-**Success: **
+**Success:**
 n/a
 
 **User Stories:**
