@@ -23,6 +23,9 @@ JavaScript, HTML/CSS
 ### Frameworks, Libraries & Programs Used
 
 * React
+* TypeScript
+* Tailwind CSS
+
 
 ## User Experience
 In a market saturated with productivity apps, Kladerradatsch stands out as a testament to empathy-driven design.
@@ -80,3 +83,10 @@ The Figma prototype offers a glimpse into Kladerradatsch's design idea.
 
 
 
+## Credits:
+* https://www.material-tailwind.com/docs/react/
+* Graphics: https://www.freepik.com/free-vector/geometric-wallpaper_10423742.htm#fromView=search&page=7&position=1&uuid=8652eecc-bed0-4938-a4e7-0d46a57c165a
+* Typograph Apple Watch Design https://support.apple.com/de-de/guide/watch/apde9218b440/watchos
+* SVG Icons https://www.svgrepo.com/svg/526462/
+* CSS Modules https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
+* https://react-icons.github.io/react-icons/
