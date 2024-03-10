@@ -90,3 +90,6 @@ The Figma prototype offers a glimpse into Kladerradatsch's design idea.
 * SVG Icons https://www.svgrepo.com/svg/526462/
 * CSS Modules https://medium.com/@ralph1786/using-css-modules-in-react-app-c2079eadbb87
 * https://react-icons.github.io/react-icons/
+* Navbar https://medium.com/@ryaddev/build-responsive-navbar-with-tailwind-css-and-react-icons-3b13a272dec4
+* https://github.com/remix-run/react-router
+* routing https://www.youtube.com/watch?v=Ul3y1LXxzdU
