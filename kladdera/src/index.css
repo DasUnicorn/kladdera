@@ -10,8 +10,31 @@
     url("./fonts/MagnelDisplay-Black.otf") format("opentype");
 }
 
-/* Headings */
+@font-face {
+  font-family: "Vidaloka-Regular";
+  src:
+    local("Vidaloka-Regular"),
+    url("./fonts/Vidaloka-Regular.ttf") format("truetype");
+}
 
+/* Headings */
+h1 {
+  font-family: 'Vidaloka-Regular';
+  font-size: xx-large;
+}
+
+h2 {
+  font-family: 'Vidaloka-Regular';
+  font-size: x-large;
+}
+
+.logo {
+  font-family: MagnelDisplay-Black;
+}
+
+.headingfont {
+  font-family: 'Vidaloka-Regular';
+}
 
 /* Elements */
 
@@ -23,4 +46,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: rgba(15,42,56,1);
   background: linear-gradient(180deg, rgba(44,112,150,1) 0%, rgba(44,112,150,1) 55%, rgba(15,42,56,1) 100%);
+}
+
+/* Buttons */
+
+.button {
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  overflow-wrap: break-word;
+  padding: 24px 40px;
+  text-decoration: none;
+  width: auto;
+  border-radius: 8px;
 }
