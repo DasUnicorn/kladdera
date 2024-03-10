@@ -2,13 +2,13 @@ import React from 'react';
 
 function Info() {
 	return (
-		<div>
-			<h1>About Us</h1>
-			<div>
-				<p>No person can reach their full potential every day.</p>
+		<div className="mx-8">
+			<h1 className="text-xl py-5 text-gold font-bold">About Us</h1>
+			<div className="flex justify-center bg-orange rounded w-1/2">
+				<p className="py-6 text-blue-dark">No person can reach their full potential every day.</p>
 			</div>
-			<section>
-				<h2>How Kladderadatsch Works</h2>
+			<section className="">
+				<h2 className="text-xl py-5 text-gold font-bold">How Kladderadatsch Works</h2>
 				<p>For us, tasks involve effort and are individual to each person.
 				You can set your own energy levels or use predefined values. 
 				Depending on your energy level, we will suggest other tasks and set
@@ -16,19 +16,20 @@ function Info() {
 				</p>
 			</section>
 			<section>
-				<h2>We do not care which task you choose.</h2>
+				<h2 className="text-xl py-5 text-gold font-bold">We do not care which task you choose.</h2>
 				<p>Instead of a list of tasks that quickly becomes overwhelming,
 				we show you a realistic selection of options.
 				If none of the tasks appeal to you, you can shuffle through several options.
 				</p>
 			</section>
 			<section>
-				<h2>We track your Tasks and Energy-Level</h2>
+				<h2 className="text-xl py-5 text-gold font-bold">We track your Tasks and Energy-Level</h2>
 				<p>Adjust your energy level whenever you want.
 				We visualize your changes over time to give you a good overview of your
 				own energy balance.
 				</p>
 			</section>
+			<button>Sign Up</button>
 		</div>
 	)
 }

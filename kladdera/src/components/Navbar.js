@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom"; 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
@@ -6,26 +7,26 @@ import styles from "./Navbar.module.css";
 const Navbar = (Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [
-	{ href: "#home", label: "Home" },
-	{ href: "#about-us", label: "About Us" },
-	{ href: "#Login", label: Props.loggedIn ? "Logout" : "Login"},
+	{ href: "/", label: "Home" },
+	{ href: "/info", label: "About Us" },
+	{ href: "/login", label: Props.loggedIn ? "Logout" : "Login"},
   ];
   return (
 	<>
 	  <div className="sm:px-8 px-4 py-2 z-10 w-full bg-gold text-blue-dark">
 		<nav className="flex justify-between items-center max-container text-blue-dark">
-		  <a href="/" className={styles.logo}>
+		  <NavLink to="/" className={styles.logo}>
 			Kladderadatsch
-		  </a>
+		  </NavLink>
 		  <ul className="flex-1 flex justify-end items-center gap-16 max-lg:hidden">
 			{navLinks.map((item) => (
 			  <li key={item.label}>
-				<a
-				  href={item.href}
+				<NavLink
+				  to={item.href}
 				  className="font-montserrat leading-normal text-lg font-bold"
 				>
 				  {item.label}
-				</a>
+				</NavLink>
 			  </li>
 			))}
 		  </ul>

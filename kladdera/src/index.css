@@ -10,15 +10,17 @@
     url("./fonts/MagnelDisplay-Black.otf") format("opentype");
 }
 
+/* Headings */
+
+
+/* Elements */
 
 body {
   margin: 0;
   font-family: 'Cambria';
+  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background: rgba(15,42,56,1);
+  background: linear-gradient(180deg, rgba(44,112,150,1) 0%, rgba(44,112,150,1) 55%, rgba(15,42,56,1) 100%);
 }
