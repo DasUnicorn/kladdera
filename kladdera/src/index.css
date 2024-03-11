@@ -21,11 +21,21 @@
 h1 {
   font-family: 'Vidaloka-Regular';
   font-size: xx-large;
+  padding: 1.25rem 0rem;
 }
 
 h2 {
   font-family: 'Vidaloka-Regular';
   font-size: x-large;
+  padding: 1.25rem 0rem;
+
+}
+
+h3 {
+  font-family: 'Vidaloka-Regular';
+  font-size: large;
+  padding: 1.25rem 0rem;
+  
 }
 
 .logo {
