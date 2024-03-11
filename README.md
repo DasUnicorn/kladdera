@@ -94,3 +94,4 @@ The Figma prototype offers a glimpse into Kladerradatsch's design idea.
 * https://github.com/remix-run/react-router
 * routing https://www.youtube.com/watch?v=Ul3y1LXxzdU
 * https://flowbite.com/blocks/marketing/register/ Sign up form
+* https://flowbite.com/blocks/marketing/login/ login form
