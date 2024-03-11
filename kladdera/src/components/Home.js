@@ -41,7 +41,7 @@ export default function Home() {
 					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? Click below to discover how we're redefining productivity with empathy.
 					From customizable task classifications to adaptive features that accommodate your energy levels, 
 					find out how our platform can empower you to navigate life's challenges with greater ease.</p>
-					<Link to="/infos" className="button text-blue-dark bg-gold headingfont text-lg text-bold me-5 w-44">Learn More</Link>
+					<Link to="/info" className="button text-blue-dark bg-gold headingfont text-lg text-bold me-5 w-44">Learn More</Link>
 				</div>
 				<div className="flex flex-col px-7">
 					<h2 className="text-gold py-5">Sign Up for free</h2>
