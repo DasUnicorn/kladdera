@@ -41,7 +41,7 @@ h2 {
 body {
   margin: 0;
   font-family: 'Cambria';
-  height: 100vh;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgba(15,42,56,1);
@@ -60,6 +60,5 @@ body {
   overflow-wrap: break-word;
   padding: 24px 40px;
   text-decoration: none;
-  width: auto;
   border-radius: 8px;
 }
