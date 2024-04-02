@@ -11,12 +11,12 @@ function SignInForm() {
   });
   const { email, password } = signInData;
 
-  const history = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signInData);
-      history.push("/");
+      const res = await axios.post("/dj-rest-auth/login/", signInData);
+      navigate('/');
     } catch (err) {
     }
   };
