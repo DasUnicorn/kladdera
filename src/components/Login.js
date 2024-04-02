@@ -11,7 +11,11 @@ function SignInForm() {
 	const { email, password } = signInData;
 
 	const history = useNavigate();
-	const [errors, setErrors] = useState({});
+	const [errors, setErrors] = useState({
+  		email: [],
+  		password: [],
+  		non_field_errors: []
+	});
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -49,12 +53,6 @@ function SignInForm() {
                       			placeholder="name@domain.com" 
                       			required="" />
                   			</div>
-                  			{errors.email?.map((message, idx) => (
-                  				<div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" key={idx}>
-  									<p className="font-bold">Be Warned</p>
-  									<p>{message}</p>
-								</div>
-            				))}
                   			<div>
                       			<label for="password" className="block mb-2 text-sm font-medium text-blue-dark">Password</label>
                       			<input type="password" 
@@ -66,12 +64,6 @@ function SignInForm() {
                       			className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                       			required="" />
                   			</div>
-                  			{errors.password?.map((message, idx) => (
-                  				<div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" key={idx}>
-  									<p className="font-bold">Be Warned</p>
-  									<p>{message}</p>
-								</div>
-            				))}
                   			<div className="flex items-center justify-between">
                       			<div className="flex items-start">
                           			<div className="flex items-center h-5">
@@ -87,12 +79,6 @@ function SignInForm() {
                   			<p className="text-sm font-light text-blue-dark">
                       		Don’t have an account yet? <Link to="/signup" className="font-medium text-blue-dark hover:underline">Sign up</Link>
                   			</p>
-                  			{errors.non_field_errors?.map((message, idx) => (
-              					<div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert" key={idx}>
-  									<p className="font-bold">Be Warned</p>
-  									<p>{message}</p>
-								</div>
-            				))}
               			</form>
           			</div>
       			</div>

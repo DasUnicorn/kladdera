@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Info from './components/Info';
 import Home from './components/Home';
 import Signup from './components/Signup';
-import SignInForm from './components/Login';
+import SignInForm from "./pages/auth/SignInForm";
 import { Routes, Route } from 'react-router-dom';
 import "./api/axiosDefaults";
 
