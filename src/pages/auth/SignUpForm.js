@@ -7,10 +7,10 @@ import axios from "axios";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     email: "",
-    password1: "",
+    password: "",
     password2: "",
   });
-  const { email, password1, password2 } = signUpData;
+  const { email, password, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -25,8 +25,12 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (password !== password2) {
+      setErrors({ confirmPassword: "Passwords do not match" });
+      return;
+    }
     try {
-      await axios.post("/register/", signUpData);
+      await axios.post("/register/", { email, password });
       navigate('/signin');
     } catch (err) {
       setErrors(err.response?.data);
@@ -57,9 +61,9 @@ const SignUpForm = () => {
                         <div>
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-blue-dark">Password</label>
                             <input type="password" 
-                            name="password1" 
-                            id="password1" 
-                            value={password1} 
+                            name="password" 
+                            id="password" 
+                            value={password} 
                             onChange={handleChange}
                             placeholder="••••••••" 
                             className="bg-gray-50 border border-blue-dark text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
