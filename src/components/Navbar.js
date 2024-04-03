@@ -4,8 +4,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
 import { CurrentUserContext } from "../App";
+import useAxiosWithRefreshToken from '../api/useAxiosWithRefreshToken';
 
 const Navbar = (Props) => {
+	const axiosInstance = useAxiosWithRefreshToken();
 	const currentUser = useContext(CurrentUserContext);
 
 	const loggedInIcons = <>{currentUser?.email}</>;
