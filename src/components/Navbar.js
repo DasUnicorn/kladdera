@@ -1,16 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom"; 
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
+import { CurrentUserContext } from "../App";
 
 const Navbar = (Props) => {
+	const currentUser = useContext(CurrentUserContext);
+
+	const loggedInIcons = <>{currentUser?.email}</>;
+  const loggedOutIcons = (
+    <>
+      <li key="About Us">
+				<NavLink
+				  to="/info"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  About Us
+				</NavLink>
+			</li>
+			<li key="Sign Up">
+				<NavLink
+				  to="/signup"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  Sign Up
+				</NavLink>
+			</li>
+			<li key="Login">
+				<NavLink
+				  to="/login"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  Login
+				</NavLink>
+			</li>
+    </>
+  );
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navLinks = [
-	{ href: "/", label: "Home" },
-	{ href: "/info", label: "About Us" },
-	{ href: "/login", label: Props.loggedIn ? "Logout" : "Login"},
-  ];
+
   return (
 	<>
 	  <div className="sm:px-8 px-4 py-2 z-10 w-full bg-gold text-blue-dark">
@@ -19,16 +48,15 @@ const Navbar = (Props) => {
 			Kladderadatsch
 		  </NavLink>
 		  <ul className="flex-1 flex justify-end items-center gap-16 max-lg:hidden">
-			{navLinks.map((item) => (
-			  <li key={item.label}>
-				<NavLink
-				  to={item.href}
+			  <li key="Home">
+					<NavLink
+				  to="/"
 				  className="font-montserrat leading-normal text-lg font-bold"
-				>
-				  {item.label}
-				</NavLink>
+					>
+				  Home
+					</NavLink>
 			  </li>
-			))}
+			  {currentUser ? loggedInIcons : loggedOutIcons}
 		  </ul>
 		  <div
 			className="hidden max-lg:block cursor-pointer"
@@ -52,16 +80,15 @@ const Navbar = (Props) => {
 			  <AiOutlineClose className="text-4xl" />
 			</div>
 			<ul className=" lg:hidden flex flex-col items-center justify-center h-full">
-			  {navLinks.map((item) => (
-				<li key={item.label}>
-				  <a
-					href={item.href}
-					className="leading-normal text-lg font-bold text-dark-blue"
-				  >
-					{item.label}
-				  </a>
-				</li>
-			  ))}
+			  <li key="Home">
+					<NavLink
+				  to="/"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  Home
+					</NavLink>
+			  </li>
+			  {currentUser ? loggedInIcons : loggedOutIcons}
 			</ul>
 		  </nav>
 		</div>
