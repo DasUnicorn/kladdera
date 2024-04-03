@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
-import { CurrentUserContext } from "../App";
+import { useSetCurrentUser } from "../contexts/CurrentUserContext";
 
 const Navbar = (Props) => {
-	const currentUser = useContext(CurrentUserContext);
+	const currentUser = useSetCurrentUser();
 
 	const loggedInIcons = <>{currentUser?.email}</>;
   const loggedOutIcons = (
