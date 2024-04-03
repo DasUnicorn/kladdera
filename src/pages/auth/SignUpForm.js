@@ -42,7 +42,7 @@ const SignUpForm = () => {
                   <h1 className="text-xl font-bold leading-tight tracking-tight text-blue-dark md:text-2xl">
                     Create An Account
                     </h1>
-                    <form className="space-y-4 md:space-y-6" action="#">
+                    <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                       <div>
                           <label htmlFor="email" className="block mb-2 text-sm font-medium text-blue-dark">Your email</label>
                             <input type="email" 
@@ -66,8 +66,8 @@ const SignUpForm = () => {
                             required="" />
                         </div>
                         <div>
-                            <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-blue-dark">Confirm password</label>
-                            <input type="confirm-password" 
+                            <label htmlFor="password2" className="block mb-2 text-sm font-medium text-blue-dark">Confirm password</label>
+                            <input type="password" 
                             name="password2" 
                             id="password2" 
                             value={password2} 
