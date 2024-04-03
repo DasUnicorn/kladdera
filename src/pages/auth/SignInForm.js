@@ -3,11 +3,11 @@ import axios from "axios"
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { SetCurrentUserContext } from "../../App";
 
 
 function SignInForm() {
-  const setCurrentUser = useSetCurrentUser();
+  const setCurrentUser = useContext(SetCurrentUserContext);
 
   const [signInData, setSignInData] = useState({
     email: "",
