@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom"; 
-import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
@@ -9,11 +8,8 @@ import { isLoggedIn, clearAuthTokens } from 'axios-jwt';
 
 const Navbar = (Props) => {
 
-	const navigate = useNavigate();
-
 	function handleLogout() {
 		clearAuthTokens()
-		navigate('/login');
 	} 
 
 	const loggedInIcons = 
@@ -28,6 +24,7 @@ const Navbar = (Props) => {
 			</li>
 			<li key="logout">
 				<NavLink
+					to="/login"
 				  className="font-montserrat leading-normal text-lg font-bold"
 				  onClick={handleLogout}
 					>
