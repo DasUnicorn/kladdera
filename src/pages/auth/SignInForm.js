@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
 import axios from "axios"
+import { setAuthTokens } from 'axios-jwt';
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { SetCurrentUserContext } from "../../App";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import api from '../../api';
 
 
 function SignInForm() {
-  const setCurrentUser = useContext(SetCurrentUserContext);
+  const setCurrentUser = useSetCurrentUser();
 
   const [signInData, setSignInData] = useState({
     email: "",
@@ -19,8 +21,13 @@ function SignInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user);
+      const response = await api.post('/auth/login/', signInData)
+      console.log(response);
+      setAuthTokens({
+        accessToken: response.data.access,
+        refreshToken: response.data.refresh
+      })
+      //setCurrentUser(response.data.user);
       navigate('/');
     } catch (err) {
     }

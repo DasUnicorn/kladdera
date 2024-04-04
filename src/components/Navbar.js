@@ -1,16 +1,40 @@
 import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import styles from "./Navbar.module.css";
-import { CurrentUserContext } from "../App";
-import useAxiosWithRefreshToken from '../api/useAxiosWithRefreshToken';
+import axios from "axios"
+import { isLoggedIn, clearAuthTokens } from 'axios-jwt';
 
 const Navbar = (Props) => {
-	const axiosInstance = useAxiosWithRefreshToken();
-	const currentUser = useContext(CurrentUserContext);
 
-	const loggedInIcons = <>{currentUser?.email}</>;
+	const navigate = useNavigate();
+
+	function handleLogout() {
+		clearAuthTokens()
+		navigate('/login');
+	} 
+
+	const loggedInIcons = 
+		<>
+			<li key="settings">
+				<NavLink
+				  to="/"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  Settings
+				</NavLink>
+			</li>
+			<li key="logout">
+				<NavLink
+				  className="font-montserrat leading-normal text-lg font-bold"
+				  onClick={handleLogout}
+					>
+				  Logout
+				</NavLink>
+			</li>
+		</>;
   const loggedOutIcons = (
     <>
       <li key="About Us">
@@ -58,7 +82,7 @@ const Navbar = (Props) => {
 				  Home
 					</NavLink>
 			  </li>
-			  {currentUser ? loggedInIcons : loggedOutIcons}
+			  {isLoggedIn() ? loggedInIcons : loggedOutIcons}
 		  </ul>
 		  <div
 			className="hidden max-lg:block cursor-pointer"
@@ -90,7 +114,7 @@ const Navbar = (Props) => {
 				  Home
 					</NavLink>
 			  </li>
-			  {currentUser ? loggedInIcons : loggedOutIcons}
+			  {isLoggedIn() ? loggedInIcons : loggedOutIcons}
 			</ul>
 		  </nav>
 		</div>
