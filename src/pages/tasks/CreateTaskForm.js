@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api';
 
 const CreateTaskForm = () => {
  const [title, setTitle] = useState('');
- const [energyLevel, setEnergyLevel] = useState(1);
+ const [energyLevel, setEnergyLevel] = useState(5);
  const [isRepeating, setIsRepeating] = useState(false);
  const [repeatFrequency, setRepeatFrequency] = useState('D');
 
- const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (event) => {
+    event.preventDefault();
 
     const token = localStorage.getItem('token');
-    console.log();
 
     try {
-      const response = await axios.post('/task/', {
+      const response = await api.post('/task/', {
         title,
         energy_level: energyLevel,
         is_repeating: isRepeating,
@@ -25,7 +24,7 @@ const CreateTaskForm = () => {
         },
       });
 
-      console.log(response.data);
+      console.log(response);
 
     } catch (error) {
       console.error(error);
@@ -44,7 +43,7 @@ const CreateTaskForm = () => {
               type="text"
               id="title"
               value={title}
-              onChange={(element) => setTitle(element.target.value)}
+              onChange={(event) => setTitle(event.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
@@ -53,7 +52,7 @@ const CreateTaskForm = () => {
             <select
               id="energyLevel"
               value={energyLevel}
-              onChange={(element) => setEnergyLevel(element.target.value)}
+              onChange={(event) => setEnergyLevel(event.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((level) => (
@@ -67,7 +66,7 @@ const CreateTaskForm = () => {
               type="checkbox"
               id="isRepeating"
               checked={isRepeating}
-              onChange={(element) => setIsRepeating(element.target.checked)}
+              onChange={(event) => setIsRepeating(event.target.checked)}
               className="mt-1 block"
             />
           </div>
@@ -77,7 +76,7 @@ const CreateTaskForm = () => {
               <select
                 id="repeatFrequency"
                 value={repeatFrequency}
-                onChange={(element) => setRepeatFrequency(element.target.value)}
+                onChange={(event) => setRepeatFrequency(event.target.value)}
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
               >
                 <option value="D">Daily</option>
