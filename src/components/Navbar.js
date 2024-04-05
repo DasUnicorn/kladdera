@@ -6,7 +6,7 @@ import styles from "./Navbar.module.css";
 import axios from "axios"
 import { isLoggedIn, clearAuthTokens } from 'axios-jwt';
 
-const Navbar = (Props) => {
+const Navbar = () => {
 
 	function handleLogout() {
 		clearAuthTokens()
@@ -16,7 +16,7 @@ const Navbar = (Props) => {
 		<>
 			<li key="settings">
 				<NavLink
-				  to="/"
+				  to="/editTasks"
 				  className="font-montserrat leading-normal text-lg font-bold"
 					>
 				  Settings
@@ -32,6 +32,7 @@ const Navbar = (Props) => {
 				</NavLink>
 			</li>
 		</>;
+
   const loggedOutIcons = (
     <>
       <li key="About Us">
