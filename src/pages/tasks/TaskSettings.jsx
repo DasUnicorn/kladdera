@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
+import { useNavigate } from 'react-router-dom';
 
 const TaskList = () => {
  const [tasks, setTasks] = useState([]);
+ const navigate = useNavigate();
 
  useEffect(() => {
     const fetchTasks = async () => {
@@ -56,8 +58,11 @@ const TaskList = () => {
     }
   };
 
-  const sortedTasks = tasks.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  const handleEditTask = (taskId) => {
+    navigate(`/editTask/${taskId}`);
+  };
 
+  const sortedTasks = tasks.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 
   return (
     <div className="flex flex-col">
