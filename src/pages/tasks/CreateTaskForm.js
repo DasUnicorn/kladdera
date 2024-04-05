@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import api from '../../api';
+import { useNavigate } from 'react-router-dom';
 
 const CreateTaskForm = () => {
  const [title, setTitle] = useState('');
  const [energyLevel, setEnergyLevel] = useState(5);
  const [isRepeating, setIsRepeating] = useState(false);
  const [repeatFrequency, setRepeatFrequency] = useState('D');
+ const navigate = useNavigate();
 
  const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,8 +25,7 @@ const CreateTaskForm = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      console.log(response);
+      navigate('/');
 
     } catch (error) {
       console.error(error);
@@ -88,7 +89,9 @@ const CreateTaskForm = () => {
               </select>
             </div>
           )}
-          <button type="submit" className="w-full text-blue-dark bg-orange hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
+          <button type="submit" 
+          className="w-full text-blue-dark bg-orange hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          >Submit</button>
         </form>
       </div>
     </div>
