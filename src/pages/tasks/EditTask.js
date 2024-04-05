@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../api';
+ import { useNavigate } from 'react-router-dom';
 
 const EditTask = () => {
  const { taskId } = useParams();
@@ -10,9 +11,11 @@ const EditTask = () => {
  const [repeating, setRepeating] = useState(false);
  const [frequency, setFrequency] = useState('');
  const [user, setUser] = useState('');
+ const navigate = useNavigate();
+
 
  useEffect(() => {
-    const fetchTask = async () => {
+  const fetchTask = async () => {
       try {
         const response = await api.get(`/task/${taskId}/`, {
           headers: {
@@ -31,7 +34,7 @@ const EditTask = () => {
     };
 
     fetchTask();
- }, [taskId]);
+  }, [taskId]);
 
  const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +50,7 @@ const EditTask = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      // Handle successful update, e.g., redirect or show a success message
+      navigate(`/editTasks`);
     } catch (error) {
       console.error('Failed to update task:', error);
     }
