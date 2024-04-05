@@ -62,8 +62,8 @@ export default function Home() {
 
 	const tasklist =
 	<>
-	<div className="h-screen flex flex-row items-center">
-		<div className="bg-blue-dark py-16 px-7 mx-10 rounded-lg">
+	<div className="lg:h-screen flex flex-col-reverse lg:flex-row lg:items-center">
+		<div className="bg-blue-dark py-2 px-4 lg:mb-4 lg:py-16 lg:px-7 lg:mx-10 rounded-lg">
 			<h2 className="text-gold">Logged in as ..email..</h2>
 			<hr className="border-1 border-gold" />
 			<div className="flex flex-row py-2">
@@ -80,25 +80,26 @@ export default function Home() {
 			</div>
 		</div>
 		<div className="flex flex-col w-full">
-			<div className="flex flex-row">
-				<div>
-					<p>Your points!</p>
-					<select value={maxPoints} onChange={handlePointsChange}>
-      					<option value="20">💪</option>
-      					<option value="15">😄</option>
-      					<option value="10">🙂</option>
-      					<option value="6">😐</option>
-      					<option value="3">😣</option>
-    				</select>
+			<div className="flex flex-col lg:flex-row">
+				<div className="flex justify-center">
+					<div className="bg-gold rounded-full p-2 lg:p-2 lg:m-2">
+						<select value={maxPoints} onChange={handlePointsChange} className="bg-blue-dark text-5xl p-4 lg:p-6 rounded-full appearance-none">
+      						<option value="20">💪</option>
+      						<option value="15">😄</option>
+      						<option value="10">🙂</option>
+      						<option value="6">😐</option>
+      						<option value="3">😣</option>
+    					</select>
+					</div>
 				</div>
-				<div className="bg-blue-dark rounded-lg py-7 px-20">
+				<div className="bg-blue-dark rounded-lg py-3 px-5 lg:py-7 lg:px-20">
 					<h1 className="text-gold py-0">Your Tasks for today:</h1>
 					<p className="text-gold">You can do this!</p>
 				</div>
 			</div>
 			<div className="py-4 px-3 m-5 flex flex-col">
 	    		{displayedTasks.map((task) => (
-		        	<div key={task.id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 w-7/12">
+		        	<div key={task.id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 lg:w-7/12">
 		              	<p className="text-m font-bold text-blue-dark ps-2">{task.energy_level}</p>
 		              	<p className="text-m font-bold text-blue-dark">{task.title}</p>
 		            	<input
