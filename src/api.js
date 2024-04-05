@@ -10,7 +10,7 @@ const axiosInstance = axios.create({ baseURL: BASE_URL })
 const requestRefresh = (refresh) => {
     // Notice that this is the global axios instance, not the axiosInstance!  <-- important
     return axios.post(`${BASE_URL}/auth/token/refresh/`, { refresh })
-      .then(response => response.data.access_token)
+      .then(response => response.data.access)
 };
 
 // 3. Apply interceptor

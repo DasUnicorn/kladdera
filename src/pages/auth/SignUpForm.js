@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import api from '../../api';
 import axios from "axios";
 
 
@@ -30,7 +30,7 @@ const SignUpForm = () => {
       return;
     }
     try {
-      await axios.post("/register/", { email, password });
+      await api.post("/register/", { email, password });
       navigate('/login/');
     } catch (err) {
       setErrors(err.response?.data);
