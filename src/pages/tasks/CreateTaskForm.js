@@ -33,12 +33,12 @@ const CreateTaskForm = () => {
  };
 
  return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div className="flex flex-col items-center md:justify-center px-6 py-8 mx-auto h-screen lg:py-0">
       <div className="w-full bg-blue-dark rounded-lg shadow p-8 dark:border sm:max-w-md">
         <h1 className="text-2xl font-bold mb-4 text-gold">Create a new Task</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gold">Title</label>
+            <label htmlFor="title" className="block text-sm font-bold text-gold">Title</label>
             <input
               type="text"
               id="title"
@@ -48,7 +48,9 @@ const CreateTaskForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="energyLevel" className="block text-sm font-medium text-gold">Energy Level</label>
+            <label htmlFor="energyLevel" className="block text-sm font-bold text-gold">Energy Level</label>
+            <p className="text-sm font-medium text-gold italic"> The energy level describes how difficult this task is for you personally.
+            It goes from 1 (very easy, I can do it just like that) to 10 (very difficult, just the idea makes me tremble)</p>
             <select
               id="energyLevel"
               value={energyLevel}
@@ -61,7 +63,7 @@ const CreateTaskForm = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="isRepeating" className="block text-sm font-medium text-gold">Repeating Task</label>
+            <label htmlFor="isRepeating" className="block text-sm font-bold text-gold">Repeating Task</label>
             <input
               type="checkbox"
               id="isRepeating"
@@ -72,7 +74,7 @@ const CreateTaskForm = () => {
           </div>
           {isRepeating && (
             <div>
-              <label htmlFor="repeatFrequency" className="block text-sm font-medium text-gold">Repeat Frequency</label>
+              <label htmlFor="repeatFrequency" className="block text-sm font-bold text-gold">Repeat Frequency</label>
               <select
                 id="repeatFrequency"
                 value={repeatFrequency}

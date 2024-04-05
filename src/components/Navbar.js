@@ -16,6 +16,14 @@ const Navbar = () => {
 		<>
 			<li key="settings">
 				<NavLink
+				  to="/createTask"
+				  className="font-montserrat leading-normal text-lg font-bold"
+					>
+				  Create Task
+				</NavLink>
+			</li>
+			<li key="settings">
+				<NavLink
 				  to="/editTasks"
 				  className="font-montserrat leading-normal text-lg font-bold"
 					>
