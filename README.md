@@ -100,3 +100,4 @@ The Figma prototype offers a glimpse into Kladerradatsch's design idea.
 * https://www.npmjs.com/package/axios-jwt
 * https://stackoverflow.com/questions/33772947/django-set-range-for-integer-model-field-as-constraint
 * https://stackoverflow.com/questions/31173324/django-rest-framework-update-field
+* https://stackoverflow.com/questions/58114855/handling-select-options-in-react-hooks
