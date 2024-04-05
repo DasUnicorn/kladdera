@@ -7,51 +7,58 @@ import api from '../api';
 export default function Home() {
 	const [tasks, setTasks] = useState([]);
 
- useEffect(() => {
+ 	useEffect(() => {
     const fetchTasks = async () => {
-      try {
-        const response = await api.get('/task/', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        });
-        setTasks(response.data);
-
-      } catch (error) {
-        console.error('Failed to fetch tasks:', error);
-      }
-    };
-
+      	try {
+        	const response = await api.get('/task/', {
+          		headers: {
+            		Authorization: `Bearer ${localStorage.getItem('token')}`,
+          		},
+        	});
+        	setTasks(response.data);
+      	} catch (error) {
+        	console.error('Failed to fetch tasks:', error);
+      		}
+      	};
     fetchTasks();
- }, []);
+ 	}, []);
 
-  const handleTaskCompletion = async (taskId, title, energy, repeating, frequency, user) => {
-    try {
-      const response = await api.put(`/task/${taskId}/`, {
-        id: taskId,
-        title: title,
-        energy_level: energy,
-        completed_at: new Date().toISOString(), 
-        is_repeating: repeating,
-        repeat_frequency: frequency,
-        user: user
-      }, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-      setTasks(tasks.map(task => task.id === taskId ? { ...task, completed_at: response.data.completed_at } : task));
-   } catch (error) {
-      console.error('Failed to update task:', error);
-   }
-  };
+  	const handleTaskCompletion = async (taskId, title, energy, repeating, frequency, user) => {
+    	try {
+      	const response = await api.put(`/task/${taskId}/`, {
+        	id: taskId,
+        	title: title,
+        	energy_level: energy,
+        	completed_at: new Date().toISOString(), 
+        	is_repeating: repeating,
+        	repeat_frequency: frequency,
+        	user: user
+      		}, {
+        	headers: {
+          	Authorization: `Bearer ${localStorage.getItem('token')}`,
+        	},
+      	});
+      	setTasks(tasks.map(task => task.id === taskId ? { ...task, completed_at: response.data.completed_at } : task));
+   	} catch (error) {
+      	console.error('Failed to update task:', error);
+   		}
+  	};
 
-	const emojiPoints = {
-    	'💪': 80,
-    	'😄': 50,
-    	'😐': 30,
-    	'😣': 10,
+  	// Add emoji selection:
+  	const [maxPoints, setMaxPoints] = useState(10);
+    const handlePointsChange = (e) => {
+    	setMaxPoints(parseInt(e.target.value, 10));
  	};
+
+  	// Filter and reduce tasks, to match current energy level
+	const displayedTasks = tasks.filter(task => task.completed_at === null)
+    	.reduce((acc, task) => {
+      		if (acc.sumEnergyLevel + task.energy_level <= maxPoints) {
+        		acc.sumEnergyLevel += task.energy_level;
+        		acc.tasks.push(task);
+      		}
+      	return acc;
+    	}, { sumEnergyLevel: 0, tasks: [] }).tasks;
 
 	const tasklist =
 	<>
@@ -76,22 +83,21 @@ export default function Home() {
 			<div className="flex flex-row">
 				<div>
 					<p>Your points!</p>
-					<select>
-          				<option>💪</option>
-          				<option>😄</option>
-          				<option>😐</option>
-          				<option>😣</option>
-        			</select>
+					<select value={maxPoints} onChange={handlePointsChange}>
+      					<option value="20">💪</option>
+      					<option value="15">😄</option>
+      					<option value="10">🙂</option>
+      					<option value="6">😐</option>
+      					<option value="3">😣</option>
+    				</select>
 				</div>
 				<div className="bg-blue-dark rounded-lg py-7 px-20">
 					<h1 className="text-gold py-0">Your Tasks for today:</h1>
 					<p className="text-gold">You can do this!</p>
 				</div>
 			</div>
-			<div className="py-4 px-3 m-5 flex flex-col">	
-	    		{tasks
-		        	.filter(task => task.completed_at === null) // Filter out completed tasks
-		        	.map((task) => (
+			<div className="py-4 px-3 m-5 flex flex-col">
+	    		{displayedTasks.map((task) => (
 		        	<div key={task.id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 w-7/12">
 		              	<p className="text-m font-bold text-blue-dark ps-2">{task.energy_level}</p>
 		              	<p className="text-m font-bold text-blue-dark">{task.title}</p>
