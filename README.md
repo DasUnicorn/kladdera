@@ -99,3 +99,4 @@ The Figma prototype offers a glimpse into Kladerradatsch's design idea.
 * https://stackoverflow.com/questions/69953377/react-router-v6-how-to-use-navigate-redirection-in-axios-interceptor
 * https://www.npmjs.com/package/axios-jwt
 * https://stackoverflow.com/questions/33772947/django-set-range-for-integer-model-field-as-constraint
+* https://stackoverflow.com/questions/31173324/django-rest-framework-update-field

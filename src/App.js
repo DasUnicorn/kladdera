@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
 import CreateTaskForm from "./pages/tasks/CreateTaskForm";
 import TaskList from "./pages/tasks/TaskList";
+import TaskSettings from "./pages/tasks/TaskSettings";
 import { Routes, Route } from 'react-router-dom';
 import { createContext, useEffect, useState } from "react";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<SignInForm />}/>
         <Route path="/createTask" element={<CreateTaskForm />}/>
         <Route path="/tasks" element={<TaskList />}/>
+        <Route path="/editTasks" element={<TaskSettings />}/>
       </ Routes>
     </>
   );
