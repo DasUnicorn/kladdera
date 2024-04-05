@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Info() {
 	return (
 		<div className="bg-gold border-t-2 border-blue-dark">
-			<div className="mx-40 pt-6 pb-20">
+			<div className="mx-10 md:mx-40 pt-6 pb-20">
 				<h1 className="py-5 text-blue-dark">About Us</h1>
 				<div className="flex justify-center bg-orange rounded w-1/2">
 					<p className="py-6 text-blue-dark">Noone can reach their full potential every day.</p>

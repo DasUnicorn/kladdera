@@ -73,7 +73,7 @@ export default function Home() {
 	const home = 
 	<>
 		<header className="bg-blue-dark py-16 border-gold border-solid border-b-2 flex flex-col items-center">
-			<h1 className="text-gold text-bold logo py-6 text-6xl">Kladderadatsch</h1>
+			<h1 className="text-gold text-bold text-s logo py-6 md:text-6xl">Kladderadatsch</h1>
 			<Link to="/signup" className="button text-blue-dark bg-gold headingfont text-lg text-bold">Sign Up</Link>
 			<div className="flex-row flex py-1">
 				<p className="text-gold pe-1">or </p>
@@ -82,9 +82,9 @@ export default function Home() {
 		</header>
 
 		<div className="flex flex-col mx-11 items-center pb-4">
-			<div className="flex flex-row justify-evenly">
-				<img src={art} alt="" className="w-[300px] self-start" />
-				<div className="flex flex-col pt-5 px-10 w-1/2">
+			<div className="flex flex-col md:flex-row justify-evenly">
+				<img src={art} alt="" className="w-[150px] md:w-[300px] self-start" />
+				<div className="flex flex-col pt-5 md:px-10 md:w-1/2">
 					<h1 className="text-gold py-4">Our Mission</h1>
 					<p className="text-gold">Your value as a human being does not depend up on your productivity.</p>
 					<p className="text-gold">
@@ -102,15 +102,15 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-row w-3/4 py-5">
-				<div className="flex flex-col px-7">
+			<div className="flex flex-col md:flex-row md:w-3/4 py-5">
+				<div className="flex flex-col md:px-7">
 					<h2 className="text-gold py-5">Features</h2>
 					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? Click below to discover how we're redefining productivity with empathy.
 					From customizable task classifications to adaptive features that accommodate your energy levels, 
 					find out how our platform can empower you to navigate life's challenges with greater ease.</p>
 					<Link to="/info" className="button text-blue-dark bg-gold headingfont text-lg text-bold me-5 w-44">Learn More</Link>
 				</div>
-				<div className="flex flex-col px-7">
+				<div className="flex flex-col md:px-7">
 					<h2 className="text-gold py-5">Sign Up for free</h2>
 					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? 
 					Click below to discover how we're redefining productivity with empathy. 
