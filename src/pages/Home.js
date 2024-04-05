@@ -46,28 +46,68 @@ export default function Home() {
    }
   };
 
-	console.log(isLoggedIn())
+	const emojiPoints = {
+    	'💪': 80,
+    	'😄': 50,
+    	'😐': 30,
+    	'😣': 10,
+ 	};
 
 	const tasklist =
-	<div className="flex flex-col">
-      {tasks
-        .filter(task => task.completed_at === null) // Filter out completed tasks
-        .map((task) => (
-          <div key={task.id} className="flex items-center mb-4">
-            <input
-              type="checkbox"
-              className="form-checkbox h-5 w-5 text-blue-600"
-              checked={task.completed_at !== null}
-              readOnly
-              onClick={() => handleTaskCompletion(task.id, task.title, task.energy_level, task.is_repeating, task.repeat_frequency, task.user)}
-            />
-            <div className="ml-3">
-              <div className="text-sm font-medium text-gray-900">{task.title}</div>
-              <div className="text-sm text-gray-500">Energy Level: {task.energy_level}</div>
-            </div>
-          </div>
-        ))}
-    </div>;
+	<>
+	<div className="h-screen flex flex-row items-center">
+		<div className="bg-blue-dark py-16 px-7 mx-10 rounded-lg">
+			<h2 className="text-gold">Logged in as ..email..</h2>
+			<hr className="border-1 border-gold" />
+			<div className="flex flex-row py-2">
+				<img src="" alt=""/>
+				<p className="text-gold">Your task stats</p>
+			</div>
+			<div className="flex flex-row py-2">
+				<img src="" alt=""/>
+				<p className="text-gold">Your mood stats</p>
+			</div>
+			<div className="flex flex-row py-2">
+				<img src="" alt=""/>
+				<p className="text-gold">Your settings</p>
+			</div>
+		</div>
+		<div className="flex flex-col w-full">
+			<div className="flex flex-row">
+				<div>
+					<p>Your points!</p>
+					<select>
+          				<option>💪</option>
+          				<option>😄</option>
+          				<option>😐</option>
+          				<option>😣</option>
+        			</select>
+				</div>
+				<div className="bg-blue-dark rounded-lg py-7 px-20">
+					<h1 className="text-gold py-0">Your Tasks for today:</h1>
+					<p className="text-gold">You can do this!</p>
+				</div>
+			</div>
+			<div className="py-4 px-3 m-5 flex flex-col">	
+	    		{tasks
+		        	.filter(task => task.completed_at === null) // Filter out completed tasks
+		        	.map((task) => (
+		        	<div key={task.id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 w-7/12">
+		              	<p className="text-m font-bold text-blue-dark ps-2">{task.energy_level}</p>
+		              	<p className="text-m font-bold text-blue-dark">{task.title}</p>
+		            	<input
+		              	type="checkbox"
+		              	className="form-checkbox h-5 w-5 text-blue-600 rounded"
+		              	checked={task.completed_at !== null}
+		              	readOnly
+		              	onClick={() => handleTaskCompletion(task.id, task.title, task.energy_level, task.is_repeating, task.repeat_frequency, task.user)}
+		            	/>
+		        	</div>
+		    	))}
+			</div>
+	    </div>
+    </div>
+    </>;
 
 
 	const home = 
