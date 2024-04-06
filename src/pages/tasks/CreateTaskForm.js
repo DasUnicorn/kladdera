@@ -3,35 +3,56 @@ import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 
 const CreateTaskForm = () => {
- const [title, setTitle] = useState('');
- const [energyLevel, setEnergyLevel] = useState(5);
- const [isRepeating, setIsRepeating] = useState(false);
- const [repeatFrequency, setRepeatFrequency] = useState('D');
- const navigate = useNavigate();
+    const [title, setTitle] = useState('');
+    const [energyLevel, setEnergyLevel] = useState(5);
+    const [isRepeating, setIsRepeating] = useState(false);
+    const [repeatFrequency, setRepeatFrequency] = useState('D');
+    const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
 
- const handleSubmit = async (event) => {
-    event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
 
-    try {
-      const response = await api.post('/task/', {
-        title,
-        energy_level: energyLevel,
-        is_repeating: isRepeating,
-        repeat_frequency: isRepeating ? repeatFrequency : null,
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      navigate('/');
 
-    } catch (error) {
-      console.error(error);
+        let validationErrors = {
+            title: "",
+            energyLevel: "",
+            energyLevel: "",
+        };
 
-    }
- };
+        // Check if titel is empty
+        if (!title.trim()) {
+            validationErrors.title = "Title is required.";
+        }
+
+        // Check if energyLevel is or out of range
+        if (energyLevel.length < 1 || energyLevel.length > 10) {
+            validationErrors.energyLevel = "EnergyLevel must be between 1 and 10.";
+        }
+
+        setErrors(validationErrors);
+
+        if (Object.values(validationErrors).every(error => error === "")) {
+            try {
+                const response = await api.post('/task/', {
+                title,
+                energy_level: energyLevel,
+                is_repeating: isRepeating,
+                repeat_frequency: isRepeating ? repeatFrequency : null,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            navigate('/');
+
+            } catch (error) {
+                //console.error(error);
+            }
+        }
+    };
 
  return (
     <div className="flex flex-col items-center md:justify-center px-6 py-8 mx-auto h-screen lg:py-0">
@@ -47,6 +68,7 @@ const CreateTaskForm = () => {
               onChange={(event) => setTitle(event.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
             />
+            {errors.title && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{errors.title}</p>}
           </div>
           <div>
             <label htmlFor="energyLevel" className="block text-sm font-bold text-gold">Energy Level</label>
@@ -62,6 +84,7 @@ const CreateTaskForm = () => {
                 <option key={level} value={level}>{level}</option>
               ))}
             </select>
+            {errors.energyLevel && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{errors.energyLevel}</p>}
           </div>
           <div>
             <label htmlFor="isRepeating" className="block text-sm font-bold text-gold">Repeating Task</label>
