@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import art from '../img/art.svg';
 import { isLoggedIn, clearAuthTokens } from 'axios-jwt';
 import api from '../api';
+import Task from "../components/Task"
 
 export default function Home() {
 	const [tasks, setTasks] = useState([]);
@@ -23,26 +24,6 @@ export default function Home() {
     fetchTasks();
  	}, []);
 
-  	const handleTaskCompletion = async (taskId, title, energy, repeating, frequency, user) => {
-    	try {
-      	const response = await api.put(`/task/${taskId}/`, {
-        	id: taskId,
-        	title: title,
-        	energy_level: energy,
-        	completed_at: new Date().toISOString(), 
-        	is_repeating: repeating,
-        	repeat_frequency: frequency,
-        	user: user
-      		}, {
-        	headers: {
-          	Authorization: `Bearer ${localStorage.getItem('token')}`,
-        	},
-      	});
-      	setTasks(tasks.map(task => task.id === taskId ? { ...task, completed_at: response.data.completed_at } : task));
-   	} catch (error) {
-      	console.error('Failed to update task:', error);
-   		}
-  	};
 
   	// Add emoji selection:
   	const [maxPoints, setMaxPoints] = useState(10);
@@ -99,17 +80,7 @@ export default function Home() {
 			</div>
 			<div className="py-4 px-3 m-5 flex flex-col">
 	    		{displayedTasks.map((task) => (
-		        	<div key={task.id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 lg:w-7/12">
-		              	<p className="text-m font-bold text-blue-dark ps-2">{task.energy_level}</p>
-		              	<p className="text-m font-bold text-blue-dark">{task.title}</p>
-		            	<input
-		              	type="checkbox"
-		              	className="form-checkbox h-5 w-5 text-blue-600 rounded"
-		              	checked={task.completed_at !== null}
-		              	readOnly
-		              	onClick={() => handleTaskCompletion(task.id, task.title, task.energy_level, task.is_repeating, task.repeat_frequency, task.user)}
-		            	/>
-		        	</div>
+		        	<Task task={task} />
 		    	))}
 			</div>
 	    </div>
