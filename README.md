@@ -22,9 +22,22 @@ JavaScript, HTML/CSS
 
 ### Frameworks, Libraries & Programs Used
 
-* React
-* TypeScript
-* Tailwind CSS
+* [React](https://react.dev/), as JS Framework
+* [Tailwind CSS](https://tailwindcss.com/), as CSS framework
+* [Node JS](https://nodejs.org/en), as runtime environment
+* [axios](https://axios-http.com/docs/intro), as HTTP Client
+* [axios-jwt](https://www.npmjs.com/package/axios-jwt), as library to Store, clear, transmit and automatically refresh JWT authentication tokens
+
+## Project Goals
+
+### Promoting Mental Well-being
+The application aims to prioritize the mental well-being of users by considering their energy levels. By breaking down tasks into manageable portions, it aims to prevent overload.
+
+### Self-Awareness and Empowerment
+One goal is to encourage users to become more self-aware of their energy levels and task capacities. Through prompting users to consider the energy consumption of tasks, the application aims to facilitate self-reflection and understanding, empowering users to make informed decisions about their productivity.
+
+### Respect for Personal Achievements
+Lets believe in acknowledging and celebrating individual accomplishments, regardless of how they may be perceived by others. The application seeks to instill a sense of respect for personal achievements, recognizing that what may seem like a small task to others can be significant for an individual.
 
 
 ## User Experience
@@ -39,8 +52,6 @@ The primary focus of Kladerradatsch is to provide support for individuals battli
 #### Experience Energy Variability
 The target audience comprises individuals who recognize the variability of their energy levels throughout the day. They understand that some days are filled with boundless energy and optimism, while others are marked by fatigue and low motivation. Kladerradatsch empowers these individuals to make the most of their high-energy days while respecting their limitations on low-energy days. This applies also to people working in shift work, or having a chronical illness.
 
-### Medical Background
-
 ## Project
 
 ### Workflow
@@ -50,11 +61,7 @@ When working on the tasks begins, the status of the issues is updated to 'In Pro
 
 If an issue passes testing successfully, it is considered 'Done' and is moved to the final column on the Kanban board.
 
-If an issue encounters blockers or dependencies that prevent progress, it is moved to the 'Waiting' column. Here, it remains until the blockers are resolved, allowing work to resume.
-
-Throughout its journey, from 'To Do' to 'Testing' and ultimately 'Done', detailed information including comments, Git commits, and testing results is added to each issue. This approach ensures transparency regarding the path and work undertaken for every issue.
-
-![Kanban-Board](static/img/readme/kanban.png)
+![Kanban-Board](public/readme/kanban.png)
 
 ### Epics
 Sadly GitHub does not support epics.
@@ -74,13 +81,56 @@ The elegant simplicity of the Apple Watch typography left an indelible impressio
 At the heart of Kladerradatsch lies a neutral palette. Against this backdrop, pops of vibrant color emerge for modern energy.
 Building upon the foundation of simplicity, Kladerradatsch incorporates elements of modern abstract art, geometric shapes, fluid lines, and subtle textures.
 
+![figma screenshot](/public/figma.png)
+
 ### Wireframes
-The design centers around an information page, authentication (login, sign up, logout,...), and past time statistics. At the core is the customizable todo list, displaying task count and energy level represented by emojis. Tasks are assigned energy levels, and the app structure shell be highly customizable to suit individual preferences.
+The design centers around an information page, authentication (login, sign up, logout,...).At the core is the  todo list, displaying task count and energy level represented by emojis. Tasks are assigned energy levels, and the app structure updates the tasklist.
+
+![figma design desktop todo-list](/public/readme/desktop-list.png)
+![figma design mobile todo-list](/public/readme/mobile-list.png)
+![figma design mobile create task](/public/readme/mobile-createtask.png)
+![figma design mobile landing page](/public/readme/mobile-landingpage.png)
+![figma design mobile sign up](/public/readme/mobile-signup.png)
+![figma design mobile info](/public/readme/mobile-works.png)
 
 ### Prototype
-The Figma prototype offers a glimpse into Kladerradatsch's design idea. 
+The [Figma prototype](https://www.figma.com/proto/ENgzmzZwR5S0Pv1V36nPz9/Untitled?type=design&node-id=1-3&t=a6WJ1wY2j5e49iV5-1&scaling=scale-down&starting-point-node-id=54%3A4&show-proto-sidebar=1&mode=design) offers a glimpse into Kladerradatsch's design idea. 
+
+## Testing
+
+### Manuel Testing
+| Feature                       | Expected Outcome                                                                                                                                                                                     | Testing Performed                                                                                                                | Result                                                                | Pass/Fail |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|-----------|
+| Sign Up                       | When the User is signing up with valid credentials, an account should be created. After Signing up, the User is logged in.                                                                           | Signing up with email = test@test.de,  password = Secure123!                                                                     | The User is logged in. An Account has been created.                   | (Result)  |
+| Invalid Sign Up               | When the User is signing in with invalid credentials, they get informed about the invalid data.                                                                                                      | 1. email = test.test.de, password = 123 2. email = test@test.de, no password 3. no email, password = Secure123!                  | The User gets informed about an invalid email and password.           | (Result)  |
+| Login                         | Can login in with the correct password and username.                                                                                                                                                 | Login with username = test@test.de,  password = Secure123!                                                                       | User is logged in.                                                    | (Result)  |
+| Invalid Login                 | Users can't login with invalid credentials.                                                                                                                                                          | 1. Login with username = test@test.de, password = InSecure123! 2. try to log in without email. 3. try to login without password. | The user is not logged in.                                            | (Result)  |
+| Logout                        | After Confirming to logout, the user gets logged out.                                                                                                                                                | Pressing Button to confirm the logout.                                                                                           | User is logged out.                                                   | (Result)  |
+| Create Task                   | A Task has been created. The User gets notified. The User is redirected to the todo list.                                                                                                            | 1. Create a new task without frequency. 2. Create a new task with frequency.                                                     | The Task has been created. The user is notified and redirected.       | (Result)  |
+| Create Invalid Task           | The user is notified what information is wrong or missing.                                                                                                                                           | 1. Create a new app, leaving title empty.                                                                                        | the task does not get created.                                        | (Result)  |
+| Edit a Task                   | When clicking on the edit button next to task in the settings, the user can update the information of a task. A task is successfully updated, the user gets notified and redirected to the settings. | Navigate to the settings, select a task, update all info fields, save.                                                           | the change is made, user gets notified and redirected                 | (Result)  |
+| Edit a Task with invalid Data | When clicking on the edit button next to task in the settings, the user can update the information of a task. A task is not updated, the user gets notified and is not redirected to the settings.   | Navigate to the settings, select a task, update info fields with invalid data, save.                                             | the change is not made, user gets notified and is not redirected      | (Result)  |
+| Delete a task                 | When clicking on the delete button next to task in the settings, the user can delete the task. After confirmation, the task is deleted, the user gets notified and the list updates..                | Navigate to the settings, select a task, press the delete button.                                                                | a confirmation is shown, after pressing yes, the task gets deleted    | (Result)  |
+| Not Delete a task             | When clicking on the delete button next to task in the settings, the user can delete the task. After choosing 'no' in confirmation, the task is not deleted.                                         | Navigate to the settings, select a task, press the delete button.                                                                | a confirmation is shown, after pressing no, the task gets not deleted | (Result)  |
+| Mark a task es done           | When clicking on the checkbox of a task, the task dissappeares.                                                                                                                                      | Click on the checkbox of a task in the tasklist.                                                                                 | task dissaperas.                                                      | (Result)  |
+| Mark a task as undone         | When clicking on a checkbox of a done task in the settings, the task gets undone.                                                                                                                    | click on a done task in the settings                                                                                             | task is marked undone.                                                | (Result)  |
+| Select an emoji               | When clicking on the emoji, the user can select other emojis. Depending on the emoji choice the tasklist updates.                                                                                    | click on the emoji, select a couple of different emojis.                                                                         | the tasklist updates.                                                 | (Result)  |
+
+## Deployment
+
+### Local Deployment
+1. Clone the git repository
+2. Navigate into your local project folder
+3. Install the dependencies with 'npm install'
+4. Start the application with 'npm start'
 
 
+### Heroku Deployment
+1. Login, or sign up to [Heroku](heroku.com)
+2. Create a new App
+3. Connect the App to your Github Repository
+4. If not set automaticly, set the heroku/nodejs Buildpack
+5. User the Heroku Deploy for deployment
 
 
 ## Credits:
