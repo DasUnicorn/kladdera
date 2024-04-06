@@ -34,13 +34,17 @@ const TaskList = () => {
         navigate(`/editTask/${taskId}`);
     };
 
+    const handleTaskUpdate = (updatedTask) => {
+        setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+    };
+
     const sortedTasks = tasks.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 
   return (
     <div className="flex flex-col">
       {sortedTasks.map((task) => (
         <div>
-            <Task task={task} />
+            <Task task={task} onTaskUpdate={handleTaskUpdate}/>
           <button onClick={() => handleEditTask(task.id)}>Edit</button>
           <button onClick={() => handleDeleteTask(task.id)}>Delete</button>
         </div>

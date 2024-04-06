@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import api from '../api';
 
-const Task = ({ task }) => {
+const Task = ({ task, onTaskUpdate }) => {
 	const { id, title, energy_level, is_repeating, completed_at, repeat_frequency, user } = task;
 
 	const handleTaskCompletion = async (taskId, title, energy, repeating, frequency, user) => {
@@ -20,6 +20,7 @@ const Task = ({ task }) => {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
+            onTaskUpdate(response.data);
         } catch (error) {
             console.error('Failed to update task:', error);
         }
