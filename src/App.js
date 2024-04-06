@@ -8,6 +8,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import CreateTaskForm from "./pages/tasks/CreateTaskForm";
 import TaskSettings from "./pages/tasks/TaskSettings";
 import EditTask from "./pages/tasks/EditTask";
+import DeleteTask from "./pages/tasks/DeleteTask";
 import { Routes, Route } from 'react-router-dom';
 import { createContext, useEffect, useState } from "react";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/createTask" element={<CreateTaskForm />}/>
         <Route path="/editTasks" element={<TaskSettings />}/>
         <Route path="/editTask/:taskId" element={<EditTask />} />
+        <Route path="/deleteTask/:taskId" element={<DeleteTask />} />
       </ Routes>
     </>
   );
