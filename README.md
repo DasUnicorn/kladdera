@@ -55,11 +55,11 @@ The target audience comprises individuals who recognize the variability of their
 ## Project
 
 ### Workflow
-In the development process, a Kanban board in form of a [github project](https://github.com/users/DasUnicorn/projects/3) is used to manage the tasks and track their progress. Initially, all issues are collected and placed in the backlog. During each iteration, a set number of issues are selected to be developed and assigned to the current milestone. These selected issues are then moved to the 'To Do' column on the Kanban board, indicating that they are ready to be worked on.
+In the development process, a Kanban board in form of a [github project](https://github.com/users/DasUnicorn/projects/3) is used to manage the tasks and track their progress. Initially, all issues are collected and placed in the backlog. During each iteration, a set number of issues are selected to be developed and assigned to the current milestone. These selected issues are then moved to the 'Ready' column on the Kanban board, indicating that they are ready to be worked on.
 
-When working on the tasks begins, the status of the issues is updated to 'In Process'. This signifies that active development is underway. Once the development work is completed, the issues move to the 'Testing' column, where they undergo thorough testing to ensure the acceptions criterias are met.
+When working on the tasks begins, the status of the issues is updated to 'In Process'. This signifies that active development is underway. Once the development work is completed, the issues move to the 'In review' column, where they undergo thorough testing to ensure the acceptions criterias are met.
 
-If an issue passes testing successfully, it is considered 'Done' and is moved to the final column on the Kanban board.
+If an issue passes testing successfully, it is considered 'Done' and is moved to the final column on the Kanban board and closed.
 
 ![Kanban-Board](public/readme/kanban.png)
 
@@ -77,11 +77,11 @@ Each User Story contains:
 - **Acceptance Criteria:** This field specifies the conditions or criteria that must be met for the user story to be considered complete. It helps define the boundaries and expectations for implementing the user story.
 
 ## Design
-The elegant simplicity of the Apple Watch typography left an indelible impression, serving as the cornerstone of Kladerradatsch's design philosophy. Embracing clean lines, minimalistic elements, and intuitive layouts, our design exudes a sense of calmness.
+The elegant simplicity of the [Apple Watch typography](https://support.apple.com/de-de/guide/watch/apde9218b440/watchos) left an impression, serving as the cornerstone of Kladerradatsch's design philosophy. Embracing clean lines, minimalistic elements, and intuitive layouts, our design exudes a sense of calmness.
 At the heart of Kladerradatsch lies a neutral palette. Against this backdrop, pops of vibrant color emerge for modern energy.
 Building upon the foundation of simplicity, Kladerradatsch incorporates elements of modern abstract art, geometric shapes, fluid lines, and subtle textures.
 
-![figma screenshot](/public/figma.png)
+![figma screenshot](/public/readme/figma.png)
 
 ### Wireframes
 The design centers around an information page, authentication (login, sign up, logout,...).At the core is the  todo list, displaying task count and energy level represented by emojis. Tasks are assigned energy levels, and the app structure updates the tasklist.
@@ -151,3 +151,5 @@ The [Figma prototype](https://www.figma.com/proto/ENgzmzZwR5S0Pv1V36nPz9/Untitle
 * https://stackoverflow.com/questions/33772947/django-set-range-for-integer-model-field-as-constraint
 * https://stackoverflow.com/questions/31173324/django-rest-framework-update-field
 * https://stackoverflow.com/questions/58114855/handling-select-options-in-react-hooks
+* https://stackoverflow.com/questions/74784441/how-to-show-validation-errors-for-a-login-form-when-fields-are-empty-on-submit
+* https://stackoverflow.com/questions/68169568/react-form-validation-for-empty-field-with-state

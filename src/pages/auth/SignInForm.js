@@ -9,35 +9,97 @@ import api from '../../api';
 
 
 function SignInForm() {
-  const setCurrentUser = useSetCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
 
-  const [signInData, setSignInData] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = signInData;
-
-  const navigate = useNavigate();
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await api.post('/auth/login/', signInData)
-      console.log(response);
-      setAuthTokens({
-        accessToken: response.data.access,
-        refreshToken: response.data.refresh
-      })
-      //setCurrentUser(response.data.user);
-      navigate('/');
-    } catch (err) {
-    }
-  };
-  const handleChange = (event) => {
-    setSignInData({
-      ...signInData,
-      [event.target.name]: event.target.value,
+    const [signInData, setSignInData] = useState({
+        email: "",
+        password: "",
     });
-  };
+    const { email, password } = signInData;
+
+    const [errors, setErrors] = useState({
+        email: "",
+        password: "",
+    });
+
+    const navigate = useNavigate();
+  
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        let validationErrors = {
+            email: "",
+            password: "",
+        };
+
+        // Check if email is empty, or no email
+        if (!email.trim()) {
+            validationErrors.email = "Email is required.";
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            validationErrors.email = "Email is not valid.";
+        }
+
+        // Check if password is empty, or too short
+        if (!password.trim()) {
+            validationErrors.password = "Password is required.";
+        } else if (password.length < 8) {
+            validationErrors.password = "Password must be at least 8 characters.";
+        }
+
+        setErrors(validationErrors);
+
+        // If there are no validation errors, proceed with form submission
+        if (Object.values(validationErrors).every(error => error === "")) {
+            try {
+                const response = await api.post('/auth/login/', signInData);
+                setAuthTokens({
+                    accessToken: response.data.access,
+                    refreshToken: response.data.refresh,
+                });
+                navigate('/');
+            } catch (err) {
+                // Handle error
+            }
+        }
+    };
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        let errorMessage = "";
+
+        // Check if the field is empty
+        console.log("value")
+        console.log(value)
+        if (!value.trim()) {
+            errorMessage = `${name.charAt(0).toUpperCase() + name.slice(1)} is required.`;
+        } else {
+            // Validate email
+            if (name === "email") {
+                if (!/\S+@\S+\.\S+/.test(value)) {
+                    errorMessage = "Email is not valid.";
+                }
+            }
+            // Validate password
+            if (name === "password") {
+                if (value.length < 8) {
+                    errorMessage = "Password must be at least 8 characters.";
+                }
+            }
+        }
+
+        setSignInData({
+            ...signInData,
+            [name]: value,
+        });
+        setErrors({
+            ...errors,
+            [name]: errorMessage,
+        });
+    };
+
+
+
   return (
     <>
     <section className="">
@@ -58,6 +120,7 @@ function SignInForm() {
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                             placeholder="name@domain.com" 
                             required="" />
+                            {errors.email && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{errors.email}</p>}
                         </div>
                         <div>
                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-blue-dark">Password</label>
@@ -69,17 +132,7 @@ function SignInForm() {
                             placeholder="••••••••" 
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                             required="" />
-                        </div>
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-start">
-                                <div className="flex items-center h-5">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300" required="" />
-                                </div>
-                                <div className="ml-3 text-sm">
-                                  <label htmlFor="remember" className="text-blue-dark">Remember me</label>
-                                </div>
-                            </div>
-                            <a href="#" className="text-sm font-medium text-blue-dark hover:underline">Forgot password?</a>
+                            {errors.password && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{errors.password}</p>}
                         </div>
                         <button type="submit" className="w-full text-blue-dark bg-orange hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
                         <p className="text-sm font-light text-blue-dark">
