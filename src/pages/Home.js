@@ -24,6 +24,9 @@ export default function Home() {
     fetchTasks();
  	}, []);
 
+ 	const handleTaskUpdate = (updatedTask) => {
+        setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+    };
 
   	// Add emoji selection:
   	const [maxPoints, setMaxPoints] = useState(10);
@@ -80,7 +83,7 @@ export default function Home() {
 			</div>
 			<div className="py-4 px-3 m-5 flex flex-col">
 	    		{displayedTasks.map((task) => (
-		        	<Task task={task} />
+		        	<Task task={task} onTaskUpdate={handleTaskUpdate}/>
 		    	))}
 			</div>
 	    </div>
