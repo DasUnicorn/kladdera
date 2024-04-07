@@ -10,6 +10,39 @@ Imagine a tool that empowers users to seize the high-energy days for tackling ta
 
 <!-- toc -->
 
+- [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+- [Project Goals](#project-goals)
+  * [Promoting Mental Well-being](#promoting-mental-well-being)
+  * [Self-Awareness and Empowerment](#self-awareness-and-empowerment)
+  * [Respect for Personal Achievements](#respect-for-personal-achievements)
+- [User Experience](#user-experience)
+  * [Target Audience](#target-audience)
+    + [Struggle with Mental Health Challenges](#struggle-with-mental-health-challenges)
+    + [Experience Energy Variability](#experience-energy-variability)
+- [Project](#project)
+  * [Workflow](#workflow)
+  * [Epics](#epics)
+  * [User Stories](#user-stories)
+  * [User Stories X Project Goals](#user-stories-x-project-goals)
+- [Design](#design)
+  * [Wireframes](#wireframes)
+  * [Prototype](#prototype)
+- [Features](#features)
+- [React Components](#react-components)
+- [Testing](#testing)
+  * [eslint result](#eslint-result)
+  * [Manuel Testing](#manuel-testing)
+- [Deployment](#deployment)
+  * [Local Deployment](#local-deployment)
+  * [Heroku Deployment](#heroku-deployment)
+- [Bugs](#bugs)
+  * [Navbar is not refreshing](#navbar-is-not-refreshing)
+- [Credits:](#credits)
+
+<!-- tocstop -->
+
 ## Technologies Used
 
 * GitHub – storage and deployment
