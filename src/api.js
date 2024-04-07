@@ -1,7 +1,7 @@
 import { applyAuthTokenInterceptor } from 'axios-jwt';
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000'
+const BASE_URL = 'https://kladdera-9fa58a88bfbf.herokuapp.com'
 
 // 1. Create an axios instance that you wish to apply the interceptor to
 const axiosInstance = axios.create({ baseURL: BASE_URL })
