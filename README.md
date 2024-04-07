@@ -23,10 +23,10 @@ JavaScript, HTML/CSS
 ### Frameworks, Libraries & Programs Used
 
 * [React](https://react.dev/), as JS Framework
-* [Tailwind CSS](https://tailwindcss.com/), as CSS framework
+* [Tailwind CSS](https://tailwindcss.com/), as CSS framework for easier management of styling throughout the project
 * [Node JS](https://nodejs.org/en), as runtime environment
 * [axios](https://axios-http.com/docs/intro), as HTTP Client
-* [axios-jwt](https://www.npmjs.com/package/axios-jwt), as library to Store, clear, transmit and automatically refresh JWT authentication tokens
+* [axios-jwt](https://www.npmjs.com/package/axios-jwt), as library to Store, clear, transmit and automatically refresh JWT authentication tokens. For easy and secure authentication.
 
 ## Project Goals
 
@@ -96,6 +96,21 @@ The design centers around an information page, authentication (login, sign up, l
 ### Prototype
 The [Figma prototype](https://www.figma.com/proto/ENgzmzZwR5S0Pv1V36nPz9/Untitled?type=design&node-id=1-3&t=a6WJ1wY2j5e49iV5-1&scaling=scale-down&starting-point-node-id=54%3A4&show-proto-sidebar=1&mode=design) offers a glimpse into Kladerradatsch's design idea. 
 
+## Features
+
+* SignUp, Login and Logout as a user
+* Tasklist
+* Create, Update and Delete a Task
+* Update Tasklist, by changing emojis
+* Mark Task as done and undone
+
+## React Components
+
+The following components have been used in this application:
+* A Navbar, used in all sites for navigation
+* A Task Design that is used in all task list and provides a task with it's functionality.
+Using components avoid code repetition, for easier mantainance.
+
 ## Testing
 
 ### Manuel Testing
@@ -153,3 +168,4 @@ The [Figma prototype](https://www.figma.com/proto/ENgzmzZwR5S0Pv1V36nPz9/Untitle
 * https://stackoverflow.com/questions/58114855/handling-select-options-in-react-hooks
 * https://stackoverflow.com/questions/74784441/how-to-show-validation-errors-for-a-login-form-when-fields-are-empty-on-submit
 * https://stackoverflow.com/questions/68169568/react-form-validation-for-empty-field-with-state
+* https://stackoverflow.com/questions/67045902/how-to-create-a-confirmation-delete-popup-in-react
