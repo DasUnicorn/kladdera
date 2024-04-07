@@ -4,6 +4,7 @@ import art from '../img/art.svg';
 import { isLoggedIn, clearAuthTokens } from 'axios-jwt';
 import api from '../api';
 import Task from "../components/Task"
+import MoodForm from "../components/MoodForm"
 
 export default function Home() {
 	const [tasks, setTasks] = useState([]);
@@ -86,6 +87,9 @@ export default function Home() {
 		        	<Task task={task} onTaskUpdate={handleTaskUpdate}/>
 		    	))}
 			</div>
+	    </div>
+	    <div className="p-4">
+	    	<MoodForm/>
 	    </div>
     </div>
     </>;
