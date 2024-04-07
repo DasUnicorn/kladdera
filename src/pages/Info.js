@@ -20,10 +20,10 @@ function Info() {
     			<p className="text-blue-dark">Our platform automatically sets achievable goals based on your energy level, empowering you to make steady
     			progress towards your objectives, no matter how much or how little energy you have.</p>
     			<h3 className="text-blue-dark">Flexible Energy Management</h3>
-    			<p className="text-blue-dark">Life doesn't follow a predictable pattern, and neither do our energy levels. With our platform, 
+    			<p className="text-blue-dark">Life doesn&apos;t follow a predictable pattern, and neither do our energy levels. With our platform, 
     			you can adjust your energy level at any moment, ensuring that your task management strategy remains 
     			responsive to your changing needs.
-    			Whether you're feeling motivated and ready to tackle challenging tasks or in need of a break to focus on self-care, 
+    			Whether you&apos;re feeling motivated and ready to tackle challenging tasks or in need of a break to focus on self-care, 
     			our system adapts to your energy fluctuations with ease.</p>
     			<h3 className="text-blue-dark">Prioritizing Self-Care</h3>
     			<p className="text-blue-dark">We understand that productivity should never come at the expense of your well-being. On slow energy days, 
@@ -33,7 +33,7 @@ function Info() {
     			and replenish your energy reserves, so you can approach your tasks with renewed focus 
     			and determination.</p>
     			<h3 className="text-blue-dark">Real-Time Adjustments</h3>
-    			<p className="text-blue-dark pb-7">Life is full of surprises, and so are our energy levels. Whether you're suddenly hit with a burst of inspiration 
+    			<p className="text-blue-dark pb-7">Life is full of surprises, and so are our energy levels. Whether you&apos;re suddenly hit with a burst of inspiration 
     			or feeling drained after a long day, our platform allows you to adjust your energy level in real-time, ensuring that 
     			your task management strategy remains agile and responsive.</p>
 				<Link to="/signup" className="button text-blue-dark bg-orange headingfont text-lg text-bold w-44">Sign Up</Link>

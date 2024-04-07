@@ -116,10 +116,10 @@ export default function Home() {
 					In a world that often measures worth by accomplishments and output, 
 					we stand for a different ethos—one that prioritizes your well-being 
 					over relentless productivity.</p>
-					<p className="text-gold">Our platform isn't just about ticking off boxes—it's about honoring 
+					<p className="text-gold">Our platform isn&apos;t just about ticking off boxes—it&apos;s about honoring 
 					your energy levels and respecting your limits. By classifying tasks based on effort required, 
 					we empower you to make informed decisions about how to allocate your precious resources. 
-					Whether you're feeling energized and ready to tackle ambitious projects or struggling to 
+					Whether you&apos;re feeling energized and ready to tackle ambitious projects or struggling to 
 					get out of bed, our system adapts to your needs, providing support and flexibility every 
 					step of the way.</p>
 					<p className="text-gold italic pt-2">Welcome to a new era of task management—one where your mental 
@@ -130,17 +130,17 @@ export default function Home() {
 			<div className="flex flex-col md:flex-row md:w-3/4 py-5">
 				<div className="flex flex-col md:px-7">
 					<h2 className="text-gold py-5">Features</h2>
-					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? Click below to discover how we're redefining productivity with empathy.
+					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? Click below to discover how we&apos;re redefining productivity with empathy.
 					From customizable task classifications to adaptive features that accommodate your energy levels, 
-					find out how our platform can empower you to navigate life's challenges with greater ease.</p>
+					find out how our platform can empower you to navigate life&apos;s challenges with greater ease.</p>
 					<Link to="/info" className="button text-blue-dark bg-gold headingfont text-lg text-bold me-5 w-44">Learn More</Link>
 				</div>
 				<div className="flex flex-col md:px-7">
 					<h2 className="text-gold py-5">Sign Up for free</h2>
 					<p className="text-gold pb-6">Curious to learn more about our revolutionary to-do tracker? 
-					Click below to discover how we're redefining productivity with empathy. 
+					Click below to discover how we&apos;re redefining productivity with empathy. 
 					From customizable task classifications to adaptive features that accommodate 
-					your energy levels, find out how our platform can empower you to navigate life's 
+					your energy levels, find out how our platform can empower you to navigate life&apos;s 
 					challenges with greater ease.</p>
 					<Link to="/signup" className="button text-blue-dark bg-gold headingfont text-lg text-bold w-44">Sign Up</Link>
 				</div>
