@@ -19,7 +19,6 @@ const CreateTaskForm = () => {
         let validationErrors = {
             title: "",
             energyLevel: "",
-            energyLevel: "",
         };
 
         // Check if titel is empty
