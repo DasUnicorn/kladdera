@@ -29,7 +29,7 @@ const Task = ({ task, onTaskUpdate }) => {
 
   	return (
 		<>
-	  	<div key={id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4 lg:w-7/12">
+	  	<div key={id} className="flex items-center mb-4 justify-between bg-gold rounded-lg py-3 px-4">
 		    <p className="text-m font-bold text-blue-dark ps-2">{energy_level}</p>
 		    <p className="text-m font-bold text-blue-dark">{title}</p>
 		    <input
