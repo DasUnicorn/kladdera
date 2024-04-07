@@ -103,6 +103,7 @@ The [Figma prototype](https://www.figma.com/proto/ENgzmzZwR5S0Pv1V36nPz9/Untitle
 * Create, Update and Delete a Task
 * Update Tasklist, by changing emojis
 * Mark Task as done and undone
+* Create, Edit Delete a Mood
 
 ## React Components
 

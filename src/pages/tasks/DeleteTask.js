@@ -55,10 +55,15 @@ const DeleteTask = () => {
 
  return (
     <>
-    <div>
-        <p>Are you sure you want to delete {task.title}</p>
-        <button onClick={() => handleReturnToList(task.id)}>No, keep it</button>
-        <button onClick={() => handleDeleteTask(task.id)}>Yes, Delete</button>
+    <div className="p-5 h-screen">
+        <h1 className="text-gold">Delete the Task</h1>
+        <p className="text-gold">Are you sure you want to delete {task.title}?</p>
+        <button 
+            className="m-2 text-blue-dark bg-gold hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            onClick={() => handleReturnToList(task.id)}>No, keep it</button>
+        <button 
+            className="m-2 text-blue-dark bg-gold hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            onClick={() => handleDeleteTask(task.id)}>Yes, Delete</button>
     </div>
     </>
  );
