@@ -76,6 +76,30 @@ Each User Story contains:
 - **User Objective:** This field outlines the user's goal or objective. It should clearly state what the user wants to achieve or accomplish. The format follows: "As a user, I want to [action], so that [reason or benefit]." With this Objective in mind, User Stories are created to align with the target audience.
 - **Acceptance Criteria:** This field specifies the conditions or criteria that must be met for the user story to be considered complete. It helps define the boundaries and expectations for implementing the user story.
 
+### User Stories X Project Goals
+<table>
+  <tr>
+    <th>Epic</th>
+    <th>Project Goal Reason</th>
+  </tr>
+  <tr>
+    <td>Epic: Mood tracking</td>
+    <td>The mood tracking epic aligns with the project goal of promoting mental well-being by enabling users to track their mood over time, helping them become more aware of their emotional state and its impact on their energy levels.</td>
+  </tr>
+  <tr>
+    <td>Epic: Creating, Editing, and Deleting a Task</td>
+    <td>This epic supports the goal of empowering users to manage their tasks effectively by providing features to create, edit, and delete tasks. By breaking down tasks into manageable portions, users can prevent overload and maintain their mental well-being.</td>
+  </tr>
+  <tr>
+    <td>Epic: Information Page</td>
+    <td>The information page epic contributes to promoting self-awareness and empowerment by providing users with valuable information about the application's features, including energy consumption considerations. It helps users understand how to use the app to optimize their productivity while prioritizing their mental well-being.</td>
+  </tr>
+  <tr>
+    <td>Epic: Authentication and Authorization</td>
+    <td>Authentication and authorization are essential for respecting personal achievements within the application. By ensuring secure access to user data and features, the application maintains privacy and fosters trust, allowing users to feel confident in celebrating their accomplishments without fear of judgment or interference.</td>
+  </tr>
+</table>
+
 ## Design
 The elegant simplicity of the [Apple Watch typography](https://support.apple.com/de-de/guide/watch/apde9218b440/watchos) left an impression, serving as the cornerstone of Kladerradatsch's design philosophy. Embracing clean lines, minimalistic elements, and intuitive layouts, our design exudes a sense of calmness.
 At the heart of Kladerradatsch lies a neutral palette. Against this backdrop, pops of vibrant color emerge for modern energy.
