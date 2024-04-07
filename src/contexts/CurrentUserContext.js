@@ -14,7 +14,6 @@ export const CurrentUserProvider = ({ children }) => {
   const handleMount = async () => {
     try {
     } catch (err) {
-      console.log(err);
     }
   };
 

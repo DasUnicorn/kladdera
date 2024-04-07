@@ -11,6 +11,7 @@ const DeleteTask = () => {
     const [repeating, setRepeating] = useState(false);
     const [frequency, setFrequency] = useState('');
     const [user, setUser] = useState('');
+    const [notification, setNotification] = useState("");
     const navigate = useNavigate();
 
 
@@ -29,6 +30,7 @@ const DeleteTask = () => {
                 setFrequency(response.data.repeat_frequency);
                 setUser(response.data.user);
             } catch (error) {
+                setNotification("Could not fint the task. Please try again.");
                 
             }
         };
@@ -43,9 +45,12 @@ const DeleteTask = () => {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
-            navigate(`/editTasks/`);
+            setNotification("Deletion of the Task successful!");
+            setTimeout(() => {
+                navigate('/editTasks/');
+            }, 3000);
         } catch (error) {
-            console.error('Failed to delete task:', error);
+            setNotification("Could not delete the task. Please try again.");
         }
     };
 
@@ -57,6 +62,7 @@ const DeleteTask = () => {
     <>
     <div className="p-5 h-screen">
         <h1 className="text-gold">Delete the Task</h1>
+        {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
         <p className="text-gold">Are you sure you want to delete {task.title}?</p>
         <button 
             className="m-2 text-blue-dark bg-gold hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

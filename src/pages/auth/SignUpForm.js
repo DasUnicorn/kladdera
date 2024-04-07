@@ -13,6 +13,8 @@ const SignUpForm = () => {
     const { email, password, password2 } = signUpData;
 
     const [errors, setErrors] = useState({});
+    const [notification, setNotification] = useState("");
+
 
     const navigate = useNavigate();
 
@@ -53,9 +55,13 @@ const SignUpForm = () => {
         if (Object.values(validationErrors).every(error => error === "")) {
             try {
                 await api.post("/register/", { email, password });
-                navigate('/login/');
+                setNotification("Sign up successful!");
+                // Wait for 3 seconds before navigating
+                setTimeout(() => {
+                    navigate('/login');
+                }, 3000);
             } catch (err) {
-                //setErrors(err.response?.data);
+                setNotification("Sign Up failed. Please try again.");
             }
         }
     };
@@ -69,6 +75,7 @@ const SignUpForm = () => {
                   <h1 className="text-xl font-bold leading-tight tracking-tight text-blue-dark md:text-2xl">
                     Create An Account
                     </h1>
+                    {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
                     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                       <div>
                           <label htmlFor="email" className="block mb-2 text-sm font-medium text-blue-dark">Your email</label>

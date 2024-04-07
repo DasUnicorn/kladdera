@@ -11,6 +11,7 @@ const DeleteMood = () => {
     const [date, setDate] = useState('');
     const [user, setUser] = useState('');
     const navigate = useNavigate();
+    const [notification, setNotification] = useState("");
 
 
     useEffect(() => {
@@ -41,9 +42,12 @@ const DeleteMood = () => {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
-            navigate(`/editTasks/`);
+            setNotification("Deletion successful!");
+            setTimeout(() => {
+                navigate(`/editTasks/`);
+            }, 3000);
         } catch (error) {
-            console.error('Failed to delete Feeling:', error);
+            setNotification("Unable to delete mood. Please try again.");
         }
     };
 
@@ -55,6 +59,7 @@ const DeleteMood = () => {
     <>
     <div className="py-2 px-5 h-screen">
         <h1 className="text-gold">Delete</h1>
+        {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
         <p className="text-gold">Are you sure you want to delete <span className="bg-orange">{mood.mood}</span> from {mood.date}?</p>
         <button 
             className="m-2 text-blue-dark bg-gold hover:bg-blue-light hover:text-gold focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

@@ -7,6 +7,7 @@ const MoodForm = () => {
     const [note, setNote] = useState('');
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+    const [notification, setNotification] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -30,9 +31,7 @@ const MoodForm = () => {
             validationErrors.mood = "Please select a valid mood.";
         }
 
-
         setErrors(validationErrors);
-        console.log(validationErrors);
 
         if (Object.values(validationErrors).every(error => error === "")) {
             try {
@@ -44,10 +43,14 @@ const MoodForm = () => {
                         Authorization: `Bearer ${token}`,
                     },
                  });
-                navigate('/');
+                setNotification("Tracking this feeling was successful!");
+                // Wait for 3 seconds before navigating
+                setTimeout(() => {
+                    navigate('/');
+                }, 3000);
 
             } catch (error) {
-                //console.error(error);
+                setNotification("Could not save the feeling. Please try again.");
             }
         }
     };
@@ -55,6 +58,7 @@ const MoodForm = () => {
  return (
     <div className="flex flex-col">
         <h2 className="text-gold">Track your Mood of the Moment</h2>
+        {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
         <form onSubmit={handleSubmit} className="flex flex-col">
             <label className="text-gold" htmlFor="mood">
                 How do you feel?

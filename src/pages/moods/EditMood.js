@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 
+
 const EditMood = () => {
     const { moodId } = useParams();
     const [mood, setMood] = useState({});
@@ -11,7 +12,8 @@ const EditMood = () => {
     const [date, setDate] = useState('');
     const [user, setUser] = useState('');
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
+    const [notification, setNotification] = useState("");
 
 
  useEffect(() => {
@@ -28,7 +30,7 @@ const EditMood = () => {
         setNote(response.data.note);
         setUser(response.data.user);
       } catch (error) {
-        console.error('Failed to fetch Feeling:', error);
+        setNotification("Unable to get current task. Please try again.");
       }
     };
 
@@ -48,19 +50,19 @@ const EditMood = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      navigate(`/editTasks`);
+      setNotification("Edit successful!");
+        setTimeout(() => {
+            navigate(`/editTasks`);
+        }, 3000);
     } catch (error) {
-      console.error('Failed to update Feeling:', error);
+      setNotification("Unable to edit modd. Please try again.");
     }
  };
-
- console.log(mood)
- console.log(mood.feeling)
- console.log(feeling)
 
  return (
     <div className="h-screen py-2 px-5">
     <h1 className="text-gold">Edit your Feeling:</h1>
+    {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
     <form onSubmit={handleSubmit} className="">
         <label className="text-gold" htmlFor="mood">
             How do you feel?

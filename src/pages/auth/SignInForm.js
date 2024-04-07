@@ -21,6 +21,8 @@ function SignInForm() {
         email: "",
         password: "",
     });
+    const [notification, setNotification] = useState("");
+
 
     const navigate = useNavigate();
   
@@ -56,9 +58,13 @@ function SignInForm() {
                     accessToken: response.data.access,
                     refreshToken: response.data.refresh,
                 });
-                navigate('/');
+                setNotification("Login successful!");
+                // Wait for 3 seconds before navigating
+                setTimeout(() => {
+                    navigate('/');
+                }, 3000);
             } catch (err) {
-                // Handle error
+                setNotification("Login failed. Please try again.");
             }
         }
     };
@@ -69,8 +75,6 @@ function SignInForm() {
         let errorMessage = "";
 
         // Check if the field is empty
-        console.log("value")
-        console.log(value)
         if (!value.trim()) {
             errorMessage = `${name.charAt(0).toUpperCase() + name.slice(1)} is required.`;
         } else {
@@ -109,6 +113,7 @@ function SignInForm() {
                     <h1 className="text-xl font-bold leading-tight tracking-tight text-blue-dark md:text-2xl">
                       Sign in to your account
                     </h1>
+                    {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
                     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-blue-dark">Your email</label>

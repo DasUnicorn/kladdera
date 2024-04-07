@@ -9,6 +9,7 @@ const CreateTaskForm = () => {
     const [repeatFrequency, setRepeatFrequency] = useState('D');
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+    const [notification, setNotification] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,10 +46,12 @@ const CreateTaskForm = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            navigate('/');
-
+            setNotification("Creation of the Task successful!");
+            setTimeout(() => {
+                navigate('/');
+            }, 3000);
             } catch (error) {
-                //console.error(error);
+                setNotification("Could not create the task. Please try again.");
             }
         }
     };
@@ -57,6 +60,7 @@ const CreateTaskForm = () => {
     <div className="flex flex-col items-center md:justify-center px-6 py-8 mx-auto h-screen lg:py-0">
       <div className="w-full bg-blue-dark rounded-lg shadow p-8 dark:border sm:max-w-md">
         <h1 className="text-2xl font-bold mb-4 text-gold">Create a new Task</h1>
+        {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="title" className="block text-sm font-bold text-gold">Title</label>

@@ -11,6 +11,7 @@ const EditTask = () => {
  const [repeating, setRepeating] = useState(false);
  const [frequency, setFrequency] = useState('');
  const [user, setUser] = useState('');
+ const [notification, setNotification] = useState("");
  const navigate = useNavigate();
 
 
@@ -29,7 +30,7 @@ const EditTask = () => {
         setFrequency(response.data.repeat_frequency);
         setUser(response.data.user);
       } catch (error) {
-        console.error('Failed to fetch task:', error);
+        setNotification("Could not find the task. Please try again.");
       }
     };
 
@@ -50,14 +51,18 @@ const EditTask = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      navigate(`/editTasks`);
+      setNotification("Edit of the Task successful!");
+      setTimeout(() => {
+        navigate('/editTasks');
+      }, 3000);
     } catch (error) {
-      console.error('Failed to update task:', error);
+      setNotification("Unable to edit the task. Please try again.");
     }
  };
 
  return (
     <form onSubmit={handleSubmit} className="h-screen py-2 px-5 flex flex-col">
+    {notification && <p className="bg-orange text-blue-dark text-xs p-1 rounded-lg">{notification}</p>}
       <label>
         Title:
         <input

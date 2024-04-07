@@ -223,3 +223,4 @@ After logging in or out, or basically everytime the state of the user changes
 * https://stackoverflow.com/questions/74784441/how-to-show-validation-errors-for-a-login-form-when-fields-are-empty-on-submit
 * https://stackoverflow.com/questions/68169568/react-form-validation-for-empty-field-with-state
 * https://stackoverflow.com/questions/67045902/how-to-create-a-confirmation-delete-popup-in-react
+* https://stackoverflow.com/questions/70586121/how-to-wait-a-second-to-navigate-after-user-signed-in-in-a-restricted-route
